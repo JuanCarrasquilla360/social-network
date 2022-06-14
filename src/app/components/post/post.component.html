@@ -1,0 +1,53 @@
+<div class="post-container">
+    <div class="header-post">
+        <div class="image-container">
+            <div class="profile-image">
+                <img src="assets/images/faces/face1.jpg" alt="profile image">
+            </div>
+            <h5>{{username}}</h5>
+        </div>
+        <div class="like-container">
+            <span *ngIf="liked">1</span>
+            <i class="fas fa-heart like-button"
+                (click)="liked = !liked"
+                [ngClass]="{'red': liked}"></i>
+            <h6 style="margin:0;">5h</h6>
+        </div>
+    </div>
+    <div class="content-post">
+        <p *ngIf="textPost" class="text-container" >{{textPost}}</p>
+        <!-- <app-upload-image></app-upload-image> -->
+        <app-show-image *ngIf="imagePost" [img]="imagePost"></app-show-image>
+    </div>
+    <div class="footer-post">
+        <hr>
+        <ng-container *ngIf="commentCollection.length > 0">
+            <div *ngFor="let item of commentCollection; let i = index">
+                <div class="d-flex justify-content-between">
+                    <span>{{item.user}}</span>
+                    <i class="far fa-trash-alt trash-btn" (click)="deleteComment(i)"></i>
+                </div>
+                <textarea 
+                    class="form-control comment" 
+                    rows="2" 
+                    [value]="item.text"
+                    readonly
+                    placeholder="comment here!">
+                </textarea>
+                <br>
+            </div>
+        </ng-container>
+        <div class="form-group comment-container">
+            <textarea 
+                class="form-control comment" 
+                rows="2" 
+                [(ngModel)]="comment"
+                (keyup.enter)="addComment(comment)"
+                placeholder="comment here!"></textarea>
+            <button class="btn btn-outline-primary send-btn"
+                    (click)="addComment(comment)">
+                <i class="far fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
