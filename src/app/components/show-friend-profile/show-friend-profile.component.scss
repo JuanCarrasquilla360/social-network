@@ -1,0 +1,38 @@
+.post-container {
+    width: 33vw;
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    background-color: #ffff;
+}
+
+.profile-image img {
+    border-radius: 100%;
+    width: 50px;
+}
+
+.header-post {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.content-post {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-container {
+    margin-top: 20px;
+    text-align: justify;
+    margin: 0;
+}

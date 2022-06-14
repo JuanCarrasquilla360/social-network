@@ -7,6 +7,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
+import { FriendsComponent } from './friends/friends.component';
 
 
 
@@ -15,6 +16,7 @@ import { ComponentsModule } from '../components/components.module';
     ProfileComponent,
     HomepageComponent,
     PagesComponent,
+    FriendsComponent,
   ],
   imports: [
     CommonModule, 

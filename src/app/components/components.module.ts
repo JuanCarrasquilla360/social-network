@@ -4,14 +4,16 @@ import { CommonModule } from '@angular/common';
 import { PostComponent } from './post/post.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { ShowImageComponent } from './show-image/show-image.component';
+import { ShowFriendProfileComponent } from './show-friend-profile/show-friend-profile.component';
 
 
 
 @NgModule({
   declarations: [
     PostComponent,
-    UploadImageComponent,
     ShowImageComponent,
+    ShowFriendProfileComponent,
+    UploadImageComponent,
   ],
   imports: [
     CommonModule,
@@ -20,8 +22,9 @@ import { ShowImageComponent } from './show-image/show-image.component';
   ],
   exports: [
     PostComponent,
-    UploadImageComponent,
     ShowImageComponent,
+    ShowFriendProfileComponent,
+    UploadImageComponent,
   ]
 })
 export class ComponentsModule { }

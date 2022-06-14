@@ -13,7 +13,6 @@ export class UploadImageComponent implements OnChanges {
 
   constructor(private imageService: ImageService) {}
   ngOnChanges(): void {
-    console.log(this.posted)
     if (this.posted === true) {
       this.clearImage()
     }
@@ -40,7 +39,6 @@ export class UploadImageComponent implements OnChanges {
       this.img.emit(this.selectedFile)
       this.imageService.uploadImage(this.selectedFile.file).subscribe(
         (res) => {
-          console.log(res)
           this.onSuccess();
         },
         (err) => {

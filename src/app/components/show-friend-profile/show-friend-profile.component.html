@@ -1,0 +1,29 @@
+<div class="post-container">
+    <div class="header-post">
+        <div class="image-container">
+            <div class="profile-image">
+                <img [src]="profile.imageProfile" alt="profile image">
+            </div>
+            <h5>{{profile.name}}</h5>
+        </div>
+    </div>
+    <div class="content-post">
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Date of Birth</label>
+            <input type="text" class="form-control" [value]="profile.dateOfBirth" placeholder="DD/MM/AAAA" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Nationality</label>
+            <input type="text" class="form-control" [value]="profile.nationality" placeholder="Country" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">place of residence</label>
+            <input type="text" class="form-control" [value]="profile.placeResidence" placeholder="Address" disabled>
+        </div>
+        <!-- <app-upload-image></app-upload-image> -->
+    </div>
+    <div class="footer-post">
+        <hr>
+        <button class="btn btn-primary">Show Profile</button>
+    </div>
+</div>

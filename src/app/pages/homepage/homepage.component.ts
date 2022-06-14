@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IPost } from 'src/app/models/homepage.model';
 import { ImageSnippet } from 'src/app/models/upload-image.model';
 @Component({
@@ -11,6 +11,7 @@ export class HomepageComponent implements OnInit {
   imageToPost!: string | null
   textPost!: string | null
   posted: boolean = false
+  @Input() title: string = 'Home'
   constructor() { }
 
   ngOnInit(): void {
@@ -28,7 +29,6 @@ export class HomepageComponent implements OnInit {
     if (post.image === null && post.text === null) return
     this.posted = true
     this.postCollection.unshift(post)
-    console.log(this.postCollection)
     this.textPost = null
     this.imageToPost = null
     setTimeout(() => { 
