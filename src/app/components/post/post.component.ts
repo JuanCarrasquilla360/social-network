@@ -14,8 +14,9 @@ interface IComment {
 export class PostComponent implements OnInit {
   @Input() username: string = 'Juan Carlos Carrasquilla'
   @Input() imageProfile!: string
-  @Input() imagePost!: string
-  @Input() textPost: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a sem et neque luctus scelerisque viverra vel diam. Vestibulum lectus urna, commodo vel viverra id, ultricies ac odio. Donec ultrices pharetra laoreet. '
+  @Input() imagePost!: string | null
+  @Input() date!: string
+  @Input() textPost: string | null = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a sem et neque luctus scelerisque viverra vel diam. Vestibulum lectus urna, commodo vel viverra id, ultricies ac odio. Donec ultrices pharetra laoreet. '
   liked: boolean = false
   commentCollection: Array<IComment> = []
   comment!: string

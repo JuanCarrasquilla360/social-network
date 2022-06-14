@@ -43,7 +43,8 @@
                 rows="2" 
                 [(ngModel)]="comment"
                 (keyup.enter)="addComment(comment)"
-                placeholder="comment here!"></textarea>
+                placeholder="comment here!">
+            </textarea>
             <button class="btn btn-outline-primary send-btn"
                     (click)="addComment(comment)">
                 <i class="far fa-paper-plane"></i>

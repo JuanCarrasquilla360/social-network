@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { ImageSnippet } from 'src/app/models/upload-image.model';
 import { ImageService } from 'src/app/services/image-service.service';
-
-class ImageSnippet {
-  pending: boolean = false;
-  status: string = 'init';
-
-  constructor(public src: string, public file: File) { }
-}
-
 @Component({
   selector: 'app-upload-image',
   templateUrl: './upload-image.component.html',
   styleUrls: ['./upload-image.component.scss']
 })
-export class UploadImageComponent {
+export class UploadImageComponent implements OnChanges {
+  @Output() img = new EventEmitter<ImageSnippet>() 
+  @Input() posted: boolean = false
   selectedFile!: ImageSnippet;
 
-  constructor(private imageService: ImageService) { }
+  constructor(private imageService: ImageService) {}
+  ngOnChanges(): void {
+    console.log(this.posted)
+    if (this.posted === true) {
+      this.clearImage()
+    }
+  }
 
   private onSuccess() {
     this.selectedFile.pending = false;
@@ -34,10 +35,9 @@ export class UploadImageComponent {
     const reader = new FileReader();
 
     reader.addEventListener('load', (event: any) => {
-      console.log(event.target.result)
       this.selectedFile = new ImageSnippet(event.target.result, file);
-
       this.selectedFile.pending = true;
+      this.img.emit(this.selectedFile)
       this.imageService.uploadImage(this.selectedFile.file).subscribe(
         (res) => {
           console.log(res)
@@ -49,6 +49,9 @@ export class UploadImageComponent {
     });
 
     reader.readAsDataURL(file);
-
+  }
+  clearImage() {
+    // @ts-ignore
+    this.selectedFile = undefined
   }
 }

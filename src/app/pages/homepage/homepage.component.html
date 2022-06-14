@@ -1,3 +1,27 @@
 <div class="wrapper">
+    <div class="form-group comment-container">
+        <textarea 
+            class="form-control comment" 
+            rows="2" 
+            [(ngModel)]="textPost"
+            placeholder="comment here!">
+        </textarea>
+        <app-upload-image (img)="getImg($event)" [posted]="posted"></app-upload-image>
+        <button class="btn btn-outline-primary send-btn"
+                (click)="addPost()">
+            <i class="far fa-paper-plane"></i>
+        </button>
+    </div>
+    <ng-container *ngIf="postCollection.length > 0">
+        <div *ngFor="let item of postCollection">
+            <app-post
+                [date]="item.date"
+                [imagePost]="item.image || null"
+                [date]="item.date"
+                [textPost]="item.text || null">
+            </app-post>
+            <br>
+        </div>
+    </ng-container>
     <app-post></app-post>
 </div>

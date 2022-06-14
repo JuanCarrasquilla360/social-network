@@ -8,7 +8,6 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 export class ShowImageComponent implements OnChanges {
   @Input()img!: string
   get _img(){
-    console.log(this.img)
     return this.img
   }
   constructor() { }
